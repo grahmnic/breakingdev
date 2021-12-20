@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "migrate": "./node_modules/.bin/sequelize db:migrate",
-    "unmigrate": "./node_modules/.bin/sequelize db:migrate:undo:all",
-    "seed": "./node_modules/.bin/sequelize db:seed:all",
-    "unseed": "./node_modules/.bin/sequelize db:seed:undo:all",
+    "migrate": "sequelize db:migrate",
+    "unmigrate": "sequelize db:migrate:undo:all",
+    "seed": "sequelize db:seed:all",
+    "unseed": "sequelize db:seed:undo:all",
     "build": "npm run unmigrate && npm run migrate && npm run unseed && npm run seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

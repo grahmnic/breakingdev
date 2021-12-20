@@ -10,10 +10,13 @@
   "dependencies": {
     "@types/react": "^17.0.37",
     "lodash": "^4.17.21",
+    "moment": "^2.29.1",
     "next": "12.0.7",
+    "numeral": "^2.0.6",
     "pluralize": "^8.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "styled-components": "^5.3.3",
     "typescript": "^4.5.4"
   },
   "devDependencies": {

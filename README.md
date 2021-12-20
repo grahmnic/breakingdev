@@ -1,1 +1,2 @@
-sequelize mern template
+Rich Text Editor: slatejs
+Utilities: lodash, pluralize, numeral, moment
