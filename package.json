@@ -1,0 +1,16 @@
+{
+    "name": "vercel-express-shell",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "concurrently": "^6.4.0"
+    },
+    "scripts": {
+        "install_bootstrap": "cd bootstrap && yarn",
+        "install_client": "cd client && yarn",
+        "postinstall": "concurrently -r \"install_client\" \"install_bootstrap\"",
+        "start_bootstrap": "cd bootstrap && yarn start",
+        "start_client": "cd client && yarn dev",
+        "start": "concurrently -r \"npm run start_bootstrap\" \"npm run start_client\""
+    }
+}
