@@ -1,12 +1,12 @@
 export const COLOR = {
     WHITE: '#FFFFFF',
-    BLACK: '#111111'
+    BLACK: '#111111',
+    LIGHTGREY: '#D3D3D3'
 }
 
 
 export const FONT = {
     FAMILY: "'Linotype Univers W01', 'Arial Narrow', Arial, Helvetica, sans-serif",
-    FAMILYROBO: 'Roboto, sans-serif',
     LINEHEIGHT: '1.4',
     MOZFONTSMOOTHING: 'grayscale',
     SIZE: {
@@ -30,7 +30,6 @@ export const FONT = {
 
 export const TYPOGRAPHY = {
     LIGHT: `
-    font-family: ${FONT.FAMILYROBO};
     font-weight: ${FONT.WEIGHT.DEFAULT};
     font-style: ${FONT.STYLE.DEFAULT};
     text-rendering: optimizeLegibility;
@@ -38,7 +37,6 @@ export const TYPOGRAPHY = {
     -moz-osx-font-smoothing: grayscale;
   `,
    BOLD: `
-    font-family: ${FONT.FAMILYROBO};
     font-weight: ${FONT.WEIGHT.BOLD};
     font-style: ${FONT.STYLE.DEFAULT};
     text-rendering: optimizeLegibility;
@@ -46,7 +44,6 @@ export const TYPOGRAPHY = {
     -moz-osx-font-smoothing: grayscale;
   `,
    BLACK: `
-   font-family: ${FONT.FAMILYROBO};
     font-weight: ${FONT.WEIGHT.BLACK};
     font-style: ${FONT.STYLE.DEFAULT};
     text-rendering: optimizeLegibility;

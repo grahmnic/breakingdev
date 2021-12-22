@@ -1,4 +1,5 @@
 import React from 'react';
+import Mural from '../components/organisms/mural';
 import config from '../config';
 import { HOME_PAGE_DESCRIPTION, HOME_PAGE_TITLE } from '../constants/seo-copy';
 import Layout from './layout';
@@ -20,8 +21,9 @@ const Home = (props: any) => {
       description={description}
       width={'full'}
       url={`${config.publicPath}`}
+      isTransparent
     >
-      Hi everyone! This is my blog.
+      <Mural />
     </Layout>
   )
 }

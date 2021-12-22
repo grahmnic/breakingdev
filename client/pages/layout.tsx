@@ -3,14 +3,16 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { COLOR, FONT } from '../theme/constants';
 import config from '../config.js';
+import Header from '../components/templates/branding/header/header';
 
 const Layout = ({
    children,
-   title = 'Insider Intelligence',
-   description = '',
+   title = 'Breaking Dev',
+   description = 'A blog about what I do for a living and everything else',
    width = '',
    url = config.publicPath,
-   bgColor = COLOR.WHITE
+   bgColor = COLOR.WHITE,
+   isTransparent = false,
 }) => (
    <>
       <LayoutWrapper width={width}>
@@ -31,7 +33,10 @@ const Layout = ({
                   })
                }}
             ></script>
+            <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Open%20Sans"></link>
          </Head>
+         <Header isTransparent={isTransparent} />
          <ChildWrapper bgColor={bgColor}>{children}</ChildWrapper>
       </LayoutWrapper>
    </>
@@ -42,7 +47,6 @@ const LayoutWrapper = styled.div<{ width: string }>`
    margin: 0 auto;
    margin-top: 0px;
    background-color: ${COLOR.WHITE};
-   font-family: ${FONT.FAMILYROBO};
 
    @media (min-width: 991px) {
       width: ${({ width }) => (width === 'full' ? '100%' : '950px')};
