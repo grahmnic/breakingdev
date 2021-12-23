@@ -32,6 +32,9 @@ const Header = (props: IHeader) => {
                     spaceBetween={20}
                 >
                     <NavLink active={router.pathname == "/"} href="/">Home</NavLink>
+                    <NavLink active={router.pathname == "/archive"} href="/">Archive</NavLink>
+                    <NavLink active={router.pathname == "/faq"} href="/">FAQ</NavLink>
+                    <NavLink active={router.pathname == "/archive"} href="/">Random</NavLink>
                 </List>
             </Nav>
         </H>

@@ -13,10 +13,13 @@ const Mural = (props: IMural) => {
 
     return (
         <M isMobile={isMobile}>
-            <MuralImageContainer>
+            <MuralDeskContainer>
                 <Image width={200} height={235} src="/images/mural.svg" />
-            </MuralImageContainer>
+            </MuralDeskContainer>
             <MuralWire height={3} backgroundColor={COLOR.WHITE} />
+            <MuralCatContainerWhite>
+                <Image width={200} height={60} src="/images/cat-dark.svg" />
+            </MuralCatContainerWhite>
         </M>
     )
 }
@@ -28,17 +31,29 @@ const M = styled.div<{ isMobile: boolean }>`
     position: relative;
 `;
 
-const MuralImageContainer = styled.div`
+const MuralDeskContainer = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
     height: 235px;
+    user-select: none;
 `;
 
 const MuralWire = styled(Hr)`
     position: absolute;
     bottom: 20px;
     left: 195px;
+    width: calc(100% - 425px);
+    z-index: 1;
+`;
+
+const MuralCatContainerWhite = styled.div`
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    user-select: none;
+    z-index: 3;
+    transform: rotate(30deg);
 `;
 
 export default Mural;

@@ -23,7 +23,7 @@ const List = (props: IList) => {
         children
     } = props;
 
-    const items = React.Children.map(children, (e, index) => <li key={index}>{e}</li>);
+    const items = React.Children.map(children, (e, index) => <li>{e}</li>);
 
     const list = (
     <ListWrapper

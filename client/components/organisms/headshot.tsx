@@ -9,12 +9,17 @@ import List from '../atoms/list';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithubAlt, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { COLOR } from '../../theme/constants';
+import FlexContainer from '../atoms/flexContainer';
 
 const Headshot = (props: any) => {
 
   return (
-    <HeadshotWrapper>
-        <Image width={200} height={200} src="/images/headshot.jpg" alt="headshot" />
+    <HeadshotWrapper
+        alignItems="center"
+    >
+        <ImageContainer>
+            <Image layout="fill" objectFit="cover" src="/images/headshot.jpg" alt="headshot" />
+        </ImageContainer>
         <Name>Nick Chen</Name>
         <Tag>@grahmnic</Tag>
         <Blurb>Making magic happen.</Blurb>
@@ -44,21 +49,26 @@ const Headshot = (props: any) => {
   )
 }
 
-const HeadshotWrapper = styled.div`
+const HeadshotWrapper = styled(FlexContainer)`
 
 `;
 
 const Name = styled(Title)`
     font-size: 20px;
+    text-align: center;
+    margin-top: 12px;
 `;
 
 const Tag = styled(Subtitle)`
     display: block;
+    text-align: center;
+    color: ${COLOR.DARKGREY};
 `;
 
 const Blurb = styled(P)`
     padding: 12px 0;
     display: block;
+    text-align: center;
 `;
 
 const Links = styled(List)``;
@@ -77,6 +87,14 @@ const LinkAnchor = styled(A)`
         margin-right: 12px;
         color: ${COLOR.GREY};
     }
+`;
+
+const ImageContainer = styled.div`
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    width: 140px;
+    height: 140px;
 `;
 
 export default Headshot;

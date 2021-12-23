@@ -11,7 +11,7 @@ interface IPosts {
 const Posts = (props: IPosts) => {
     const { isMobile = false, posts } = props;
 
-    const postList = posts.map(post =>
+    const postList = posts.map((post, index) =>
         <Post
             title="In Losing The Village We Abandoned Society’s Parents"
             slug="In-Losing-The-Village-We-Abandoned-Society’s-Parents"
@@ -23,6 +23,7 @@ const Posts = (props: IPosts) => {
             timeToRead={680}
             primaryTopic="Lifestyle"
             secondaryTopics={["Parenting", "Parenting"]}
+            key={index}
         />
     );
 
