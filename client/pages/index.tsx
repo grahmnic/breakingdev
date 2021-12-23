@@ -1,6 +1,6 @@
 import React from 'react';
-import Posts from '../components/molecules/posts/posts';
 import Mural from '../components/organisms/mural';
+import Body from '../components/templates/home/body';
 import config from '../config';
 import { HOME_PAGE_DESCRIPTION, HOME_PAGE_TITLE } from '../constants/seo-copy';
 import Layout from './layout';
@@ -12,12 +12,6 @@ const Home = (props: any) => {
   const title = HOME_PAGE_TITLE;
   const description = HOME_PAGE_DESCRIPTION;
 
-  if (props.statusCode > 200) {
-    return <div>Not Found</div>;
-  }
-
-  const posts = [null, null, null, null];
-
   return (
     <Layout
       title={title}
@@ -27,7 +21,7 @@ const Home = (props: any) => {
       isTransparent
     >
       <Mural />
-      <Posts posts={posts}/>
+      <Body />
     </Layout>
   )
 }

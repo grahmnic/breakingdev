@@ -32,8 +32,6 @@ const Header = (props: IHeader) => {
                     spaceBetween={20}
                 >
                     <NavLink active={router.pathname == "/"} href="/">Home</NavLink>
-                    <NavLink active={router.pathname == "/about"} href="/about">About</NavLink>
-                    <NavLink active={router.pathname == "/contact"} href="/contact">Contact Me</NavLink>
                 </List>
             </Nav>
         </H>

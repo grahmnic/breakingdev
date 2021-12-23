@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 interface IList extends BaseElement {
@@ -18,6 +18,7 @@ const List = (props: IList) => {
         customScrollbarPadding = 16,
         spaceBetween = 8,
         listStyle = 'none',
+        scrollable = true,
         className,
         children
     } = props;
@@ -31,6 +32,7 @@ const List = (props: IList) => {
         customScrollbar={customScrollbar}
         customScrollbarPadding={customScrollbarPadding}
         spaceBetween={spaceBetween}
+        scrollable={scrollable}
         className={className}
     >
         {items}
@@ -48,6 +50,7 @@ interface ListWrapperProps {
   customScrollbar: boolean;
   customScrollbarPadding: number;
   spaceBetween: number;
+  scrollable: boolean;
 }
 
 export const ListWrapper = styled.ul<ListWrapperProps>`
@@ -58,7 +61,7 @@ export const ListWrapper = styled.ul<ListWrapperProps>`
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
-  overflow: auto;
+  overflow: ${p => p.scrollable ? 'auto' : 'none'};
   min-height: 0;
   ${p => {
     if (p.customScrollbar) {

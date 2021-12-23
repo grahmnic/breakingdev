@@ -5,10 +5,6 @@ import Layout from './layout';
 const About = (props: any) => {
   const isBrowser = () => typeof window !== "undefined";
 
-  if (props.statusCode > 200) {
-    return <div>Not Found</div>;
-  }
-
   return (
     <Layout
       width={'full'}

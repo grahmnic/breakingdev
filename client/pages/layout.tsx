@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { COLOR, FONT } from '../theme/constants';
 import config from '../config.js';
 import Header from '../components/templates/branding/header/header';
+import Footer from '../components/templates/branding/footer/footer';
 
 const Layout = ({
    children,
@@ -39,6 +40,7 @@ const Layout = ({
          </Head>
          <Header isTransparent={isTransparent} />
          <ChildWrapper bgColor={bgColor}>{children}</ChildWrapper>
+         <Footer />
       </LayoutWrapper>
    </>
 );

@@ -7,11 +7,13 @@ import { COLOR, TYPOGRAPHY } from '../../../theme/constants';
 import StyledLink from '../styledlink';
 import Title from '../../atoms/title';
 import Hr from '../../atoms/hr';
+import P from '../../atoms/p';
 
 interface IPost {
     isMobile?: boolean;
     title: string;
     subtitle: string;
+    blurb: string;
     slug: string;
     publishedAt: any;
     primaryTopic: string;
@@ -21,11 +23,13 @@ interface IPost {
 }
 
 const Post = (props: IPost) => {
-    const { isMobile = false, title, slug, subtitle, publishedAt, primaryTopic, secondaryTopics, thumbnail, timeToRead } = props;
+    const { isMobile = false, title, slug, subtitle, blurb, publishedAt, primaryTopic, secondaryTopics, thumbnail, timeToRead } = props;
 
     const minutesToRead = Math.round(timeToRead / 60) + " min";
 
     const formattedDate = moment(publishedAt).format('MMM Do YYYY');
+
+    const formattedBlurb = blurb + "...";
 
     return (
         <PostWrapper isMobile={isMobile}>
@@ -42,6 +46,12 @@ const Post = (props: IPost) => {
                 </PostHeader>
                 <PostTitle href={`/post/${slug}`}>{title}</PostTitle>
                 <PostSubtitle>{subtitle}</PostSubtitle>
+                <PostBlurb>
+                    {formattedBlurb}
+                </PostBlurb>
+                <PostReadMore href={`/post/${slug}`}>
+                    Read More...
+                </PostReadMore>
                 <PostMeta
                     flexDirection="row"
                     alignItems="center"
@@ -69,7 +79,7 @@ const PostBody = styled(FlexContainer)``;
 
 const PostCategory = styled(Title)`
     ${TYPOGRAPHY.BLACK};
-    font-size: 16px;
+    font-size: 14px;
     color: ${COLOR.GREY};
     letter-spacing: 1px;
 `;
@@ -83,14 +93,44 @@ const PostTitle = styled(StyledLink)`
     }
 `;
 
+const PostReadMore = styled(StyledLink)`
+    margin-top: 8px;
+    ${TYPOGRAPHY.BOLD};
+    font-size: 13px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+`;
+
 const PostSubtitle = styled(Subtitle)`
     font-size: 14px;
     color: ${COLOR.DARKGREY};
 `;
 
+const PostBlurb = styled(P)`
+    font-size: 13px;
+    color: ${COLOR.BLACK};
+    margin-top: 8px;
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        background-image : linear-gradient(to bottom,
+            rgba(255,255,255, 0),
+            rgba(255,255,255, 0.8) 90%);
+        width: 100%;
+        height: 60px;
+    }
+`;
+
 const PostMeta = styled(FlexContainer)`
     height: 18px;
-    margin-top: 6px;
+    margin-top: 8px;
 
     > {
         &:not(:last-child) {
