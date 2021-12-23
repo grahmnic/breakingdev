@@ -23,12 +23,18 @@ const Headshot = (props: any) => {
         >
             <LinkAnchor href="https://github.com/grahmnic" target="_blank">
                 <FontAwesomeIcon
+                    width={16}
+                    height={16}
+                    fontSize={16}
                     icon={faGithubAlt}
                 />
                 github.com/grahmnic
             </LinkAnchor>
             <LinkAnchor href="https://www.linkedin.com/in/nickschen/" target="_blank">
                 <FontAwesomeIcon
+                    width={16}
+                    height={16}
+                    fontSize={16}
                     icon={faLinkedinIn}
                 />
                 linkedin.com/nickschen
@@ -59,6 +65,9 @@ const Links = styled(List)``;
 
 const LinkAnchor = styled(A)`
     font-size: 12px;
+    display: flex;
+    align-items: center;
+    padding: 2px 0;
 
     &:hover {
         text-decoration: underline;
@@ -67,7 +76,6 @@ const LinkAnchor = styled(A)`
     svg {
         margin-right: 12px;
         color: ${COLOR.GREY};
-        font-size: 14px;
     }
 `;
 
