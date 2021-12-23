@@ -1,2 +1,1 @@
-Rich Text Editor: slatejs
-Utilities: lodash, pluralize, numeral, moment
+Client side for blog.
