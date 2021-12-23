@@ -1,4 +1,5 @@
 import React from 'react';
+import Posts from '../components/molecules/posts/posts';
 import Mural from '../components/organisms/mural';
 import config from '../config';
 import { HOME_PAGE_DESCRIPTION, HOME_PAGE_TITLE } from '../constants/seo-copy';
@@ -15,6 +16,8 @@ const Home = (props: any) => {
     return <div>Not Found</div>;
   }
 
+  const posts = [null, null, null, null];
+
   return (
     <Layout
       title={title}
@@ -24,6 +27,7 @@ const Home = (props: any) => {
       isTransparent
     >
       <Mural />
+      <Posts posts={posts}/>
     </Layout>
   )
 }

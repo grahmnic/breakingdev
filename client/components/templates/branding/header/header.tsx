@@ -1,10 +1,7 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 import { COLOR, TYPOGRAPHY } from '../../../../theme/constants';
-import A from '../../../atoms/a';
 import FlexContainer from '../../../atoms/flexContainer';
 import List from '../../../atoms/list';
 import Title from '../../../atoms/title';
@@ -67,11 +64,13 @@ const Nav = styled.nav``;
 
 const NavLink = styled(StyledLink)<{ active: boolean }>`
     color: ${COLOR.WHITE};
+    ${TYPOGRAPHY.BOLD};
+    font-size: 14px;
     display: block;
-    padding: 8px 0;
+    padding: 10px 0;
 
     ${p => p.active ? `
-        border-bottom: 2px solid ${COLOR.WHITE};
+        border-bottom: 2px solid ${COLOR.DARKGREY};
     ` : ''}
 `;
 

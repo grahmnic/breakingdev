@@ -19,7 +19,7 @@ const Subtitle = (props: ISubtitle) => {
 const S = styled.span`
     color: ${COLOR.LIGHTGREY};
     ${TYPOGRAPHY.LIGHT};
-    font-size: 11px;
+    font-size: 12px;
 `;
 
 export default Subtitle;
