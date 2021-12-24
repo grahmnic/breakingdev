@@ -46,7 +46,7 @@ const H = styled(FlexContainer)<{ isTransparent: boolean }>`
     width: 100%;
     padding: 0 48px;
     position: ${p => p.isTransparent ? 'absolute' : 'relative'};
-    z-index: 1;
+    z-index: 100;
 
     ${p => p.isTransparent ? `
         top: 0;

@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { COLOR } from '../../theme/constants';
+import { COLOR, TYPOGRAPHY } from '../../theme/constants';
 import Image from 'next/image';
 import Hr from '../atoms/hr';
+import FlexContainer from '../atoms/flexContainer';
+import Title from '../atoms/title';
 
 interface IMural {
     isMobile?: boolean;
@@ -12,7 +14,11 @@ const Mural = (props: IMural) => {
     const { isMobile = false } = props;
 
     return (
-        <M isMobile={isMobile}>
+        <M
+            justifyContent="center"
+            alignItems="center"
+            isMobile={isMobile}
+        >
             <MuralDeskContainer>
                 <Image width={200} height={235} src="/images/mural.svg" />
             </MuralDeskContainer>
@@ -20,15 +26,40 @@ const Mural = (props: IMural) => {
             <MuralCatContainerWhite>
                 <Image width={200} height={60} src="/images/cat-dark.svg" />
             </MuralCatContainerWhite>
+            <MuralOutletContainer>
+                <Image width={30} height={55} src="/images/outlet.svg" />
+            </MuralOutletContainer>
+            <MuralCTAContainer>
+                <MuralCTA>
+                    This is beautiful, calm, and very happy. There’s a story, but no villain. A journey, but no obstacle other than distance. There’s no struggle, only progress. I was constantly on edge, waiting for something to happen to the witches, to the star, but nothing ever did.
+                </MuralCTA>
+            </MuralCTAContainer>
         </M>
     )
 }
 
-const M = styled.div<{ isMobile: boolean }>`
+const M = styled(FlexContainer)<{ isMobile: boolean }>`
     width: 100%;
     height: 320px;
     background: ${COLOR.BLACK};
     position: relative;
+`;
+
+const MuralCTAContainer = styled.div`
+    width: 2000px;
+    height: 100%;
+    overflow: hidden;
+`;
+
+const MuralCTA = styled(Title)`
+    color: ${COLOR.WHITE};
+    font-size: 70px;
+    width: 110%;
+    opacity: 0.1;
+    ${TYPOGRAPHY.BLACK};
+    position: relative;
+    z-index: 1;
+    user-select: none;
 `;
 
 const MuralDeskContainer = styled.div`
@@ -37,14 +68,15 @@ const MuralDeskContainer = styled.div`
     left: 0;
     height: 235px;
     user-select: none;
+    z-index: 2;
 `;
 
 const MuralWire = styled(Hr)`
     position: absolute;
     bottom: 20px;
     left: 195px;
-    width: calc(100% - 425px);
-    z-index: 1;
+    width: calc(100% - 400px);
+    z-index: 2;
 `;
 
 const MuralCatContainerWhite = styled.div`
@@ -54,6 +86,14 @@ const MuralCatContainerWhite = styled.div`
     user-select: none;
     z-index: 3;
     transform: rotate(30deg);
+`;
+
+const MuralOutletContainer = styled.div`
+    position: absolute;
+    bottom: -2px;
+    right: 190px;
+    user-select: none;
+    z-index: 2;
 `;
 
 export default Mural;
