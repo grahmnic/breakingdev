@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "concurrently": "^6.4.0"
+        "concurrently": "^6.4.0",
+        "response-time": "^2.3.2"
     },
     "scripts": {
         "install_bootstrap": "cd bootstrap && yarn",

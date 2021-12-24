@@ -4,9 +4,13 @@ import { asFunction, asValue } from 'awilix';
 import application from './factories/application.js';
 import router from './factories/router.js';
 
+import postsController from './controllers/posts.js';
+
 container.register({
     application: asFunction(application).singleton(),
-    router: asFunction(router).singleton()
+    router: asFunction(router).singleton(),
+
+    postsController: asFunction(postsController).singleton()
 });
 
 const start = ({
@@ -18,7 +22,8 @@ const start = ({
         mongo: mongoConnection
     }).then(({ mongo }) => {
         container.register({
-            mongo: asValue(mongo)
+            mongo: asValue(mongo),
+            core: asValue(mongo.core)
         })
 
         const application = container.resolve('application')

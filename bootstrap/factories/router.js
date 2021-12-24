@@ -1,12 +1,18 @@
 import express from 'express';
 
-export default ({ }) => {
+export default ({
+    postsController
+}) => {
     const router = express.Router();
 
     /**
      * Fallbacks
      */
-    router.route('/').get((request, response) => response.send("TEST"));
+    router.route('/').get((request, response) => {
+        response.send("OK");
+    });
+
+    router.route('/posts').get(postsController.getAllPosts);
 
     return router;
 }
