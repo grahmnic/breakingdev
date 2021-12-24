@@ -72,7 +72,7 @@ const NavLink = styled(StyledLink)<{ active: boolean }>`
     padding: 10px 0;
 
     ${p => p.active ? `
-        border-bottom: 2px solid ${COLOR.DARKGREY};
+        border-bottom: 4px solid ${COLOR.DARKGREY};
     ` : ''}
 `;
 

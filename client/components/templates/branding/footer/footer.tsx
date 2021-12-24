@@ -60,6 +60,8 @@ const FooterWrapper = styled(FlexContainer)`
     height: 380px;
     background: ${COLOR.BLACK};
     padding: 0 48px;
+    position: relative;
+    z-index: 100;
 `;
 
 const F = styled(FlexContainer)`

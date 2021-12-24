@@ -31,7 +31,7 @@ const Mural = (props: IMural) => {
             </MuralOutletContainer>
             <MuralCTAContainer>
                 <MuralCTA>
-                    This is beautiful, calm, and very happy. There’s a story, but no villain. A journey, but no obstacle other than distance. There’s no struggle, only progress. I was constantly on edge, waiting for something to happen to the witches, to the star, but nothing ever did.
+                    This is beautiful, calm, and very happy. There’s a story, but no villain. A journey, but no obstacle other than distance. There’s no struggle, only progress. I was constantly on edge, waiting for something to happen to the witches, to the star, but nothing ever did. This is beautiful, calm, and very happy. There’s a story, but no villain. A journey, but no obstacle other than distance. There’s no struggle, only progress. I was constantly on edge, waiting for something to happen to the witches, to the star, but nothing ever did.
                 </MuralCTA>
             </MuralCTAContainer>
         </M>
@@ -46,14 +46,16 @@ const M = styled(FlexContainer)<{ isMobile: boolean }>`
 `;
 
 const MuralCTAContainer = styled.div`
-    width: 2000px;
+    width: 2200px;
     height: 100%;
     overflow: hidden;
+    position: fixed;
+    top: 0;
 `;
 
 const MuralCTA = styled(Title)`
     color: ${COLOR.WHITE};
-    font-size: 70px;
+    font-size: 60px;
     width: 110%;
     opacity: 0.1;
     ${TYPOGRAPHY.BLACK};

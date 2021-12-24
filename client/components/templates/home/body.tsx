@@ -30,6 +30,8 @@ const LeftPanel = styled(FlexContainer)`
 
 const HomeWrapper = styled(FlexContainer)`
   padding: 48px 0;
+  position: relative;
+  z-index: 2;
 `;
 
 const RightPanel = styled.div`

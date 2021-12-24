@@ -8,7 +8,7 @@
     "scripts": {
         "install_bootstrap": "cd bootstrap && yarn",
         "install_client": "cd client && yarn",
-        "postinstall": "concurrently -r \"install_client\" \"install_bootstrap\"",
+        "postinstall": "concurrently -r \"npm run install_client\" \"npm run install_bootstrap\"",
         "start_bootstrap": "cd bootstrap && yarn start",
         "start_client": "cd client && yarn dev",
         "start": "concurrently -r \"npm run start_bootstrap\" \"npm run start_client\""
