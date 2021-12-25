@@ -1,6 +1,6 @@
 import environment from 'config';
 
-export default () => {
+export default ({}) => {
     try {
         console.log("Fetching environment variables.");
     } catch (error) {
