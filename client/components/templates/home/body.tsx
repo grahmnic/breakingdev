@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import config from '../../../config';
+import APIClient from '../../../helpers/apiClient';
+import useAsync from '../../../helpers/hooks/useAsync';
 import FlexContainer from '../../atoms/flexContainer';
 import Posts from '../../molecules/posts/posts';
 import Headshot from '../../organisms/headshot';
 
 const Body = (props: any) => {
-  const posts = [null, null, null, null, null];
+  const { execute, status, value, error } = useAsync(async () => {
+    const res = await APIClient('get', `${config.apiHost}posts`);
+
+    return res.data;
+  }, false);
+
+  useEffect(() => {
+    if (!value) {
+      execute();
+    }
+  }, [value]);
+
+  const posts = value ? value : [];
 
   return (
     <HomeWrapper
@@ -16,7 +31,7 @@ const Body = (props: any) => {
         >
           <Headshot />
         </LeftPanel>
-        <Posts posts={posts}/>
+        <Posts posts={posts} />
         <RightPanel></RightPanel>
     </HomeWrapper>
   )

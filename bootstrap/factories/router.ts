@@ -25,6 +25,10 @@ export default ({
         response.send("OK");
     });
 
+    router.route('/me').get(isAuth, (req, res) => {
+        res.send("Authenticated");
+    });
+
     // AUTHENTICATION
     router.route('/signup').post(usersController.addUser);
     router.route('/csrf').get((req, res) => {
@@ -57,12 +61,12 @@ export default ({
                                 const jwtToken = jwt.sign({
                                     user: userAccessToken
                                 }, environment.get('api.authentication.secret'), {
-                                    expiresIn: 60 * 60 * 24 * 14
+                                    expiresIn: 60 * 60 * 12
                                 });
 
                                 res.cookie('t', jwtToken, {
                                     httpOnly: true,
-                                    maxAge: 60 * 60 * 24 * 14,
+                                    maxAge: 60 * 60 * 12,
                                 });
 
                                 res.status(301).redirect(`${environment.get('modules.client')}`)

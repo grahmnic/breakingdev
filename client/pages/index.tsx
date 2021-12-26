@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Mural from '../components/organisms/mural';
 import Body from '../components/templates/home/body';
 import config from '../config';
@@ -11,6 +11,8 @@ const Home = (props: any) => {
   // SEO
   const title = HOME_PAGE_TITLE;
   const description = HOME_PAGE_DESCRIPTION;
+
+  console.log()
 
   return (
     <Layout

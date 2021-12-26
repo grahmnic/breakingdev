@@ -82,6 +82,7 @@ const PostCategory = styled(Title)`
     font-size: 14px;
     color: ${COLOR.GREY};
     letter-spacing: 1px;
+    white-space: nowrap;
 `;
 
 const PostTitle = styled(StyledLink)`

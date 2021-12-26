@@ -6,6 +6,8 @@ import FlexContainer from '../../../atoms/flexContainer';
 import List from '../../../atoms/list';
 import Title from '../../../atoms/title';
 import StyledLink from '../../../molecules/styledlink';
+import { useSelector } from 'react-redux';
+import { selectAuthenticated, selectRole } from '../../../../redux/reducers/auth';
 
 interface IHeader {
     isTransparent?: boolean;
@@ -13,6 +15,9 @@ interface IHeader {
 
 const Header = (props: IHeader) => {
     const { isTransparent = false } = props;
+
+    console.log(useSelector(selectAuthenticated));
+    console.log(useSelector(selectRole));
 
     const router = useRouter();
 

@@ -14,7 +14,7 @@ export default ({
 
         getAllPosts: async (req: Request, res: Response) => {
             const posts = await core.collection('posts-meta').find({}).toArray();
-            const t = 3;
+
             return res.json(posts);
         }
     }

@@ -13,7 +13,7 @@ export default ({
 }) => {
     const strategy = new Strategy({
         secretOrKey: environment.get('api.authentication.secret'),
-        jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
+        jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
         passReqToCallback: true
     },
 
@@ -26,17 +26,17 @@ export default ({
      */
     (request: Request, payload: any, done: any) => {
         // Save the JWT from the header
-        const token = request.cookies.t;
+        const token = request.headers.authorization.split(' ')[1];
 
         // Verify the JWT appears in auth, is a legitimate token, and hasn't been manipulated
-        verify(token, environment.get('api.authentication.secret'), async (error: any, decodedToken: any) => {
+        verify(token, environment.get('api.authentication.secret'), async (error, decodedToken) => {
             if (error) return done(null, false);
             // if (request.ip !== decodedToken.user_ip) return done(null, false)
-            if (!decodedToken.verified) return done(null, false);
+            if (!decodedToken.user) return done(null, false);
 
             const user = await core.collection('users').find({
                 where: {
-                    id: decodedToken.user_id
+                    id: decodedToken.user.user_id
                 }
             });
 

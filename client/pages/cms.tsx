@@ -2,7 +2,7 @@ import React from 'react';
 import config from '../config';
 import Layout from './layout';
 
-const Home = (props: any) => {
+const CMS = (props: any) => {
   const isBrowser = () => typeof window !== "undefined";
 
   // SEO
@@ -21,4 +21,4 @@ const Home = (props: any) => {
   )
 }
 
-export default Home;
+export default CMS;
