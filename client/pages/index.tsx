@@ -3,7 +3,7 @@ import Mural from '../components/organisms/mural';
 import Body from '../components/templates/home/body';
 import config from '../config';
 import { HOME_PAGE_DESCRIPTION, HOME_PAGE_TITLE } from '../constants/seo-copy';
-import Layout from './layout';
+import Layout from '../components/layout';
 
 const Home = (props: any) => {
   const isBrowser = () => typeof window !== "undefined";

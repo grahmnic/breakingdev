@@ -6,7 +6,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Merriweather', serif;
+}
+
+input, button {
+  font-family: 'Merriweather', serif;
 }
 
 a {

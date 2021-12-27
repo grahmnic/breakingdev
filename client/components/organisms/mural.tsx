@@ -20,14 +20,14 @@ const Mural = (props: IMural) => {
             isMobile={isMobile}
         >
             <MuralDeskContainer>
-                <Image width={200} height={235} src="/images/mural.svg" />
+                <Image width={200} height={235} src="/images/mural.svg" alt="desk" priority={true}/>
             </MuralDeskContainer>
             <MuralWire height={3} backgroundColor={COLOR.WHITE} />
             <MuralCatContainerWhite>
-                <Image width={200} height={60} src="/images/cat-dark.svg" />
+                <Image width={200} height={60} src="/images/cat-dark.svg" alt="cat" priority={true}/>
             </MuralCatContainerWhite>
             <MuralOutletContainer>
-                <Image width={30} height={55} src="/images/outlet.svg" />
+                <Image width={30} height={55} src="/images/outlet.svg" alt="outlet" priority={true}/>
             </MuralOutletContainer>
             <MuralCTAContainer>
                 <MuralCTA>
@@ -57,7 +57,7 @@ const MuralCTA = styled(Title)`
     color: ${COLOR.WHITE};
     font-size: 60px;
     width: 110%;
-    opacity: 0.1;
+    opacity: 0.05;
     ${TYPOGRAPHY.BLACK};
     position: relative;
     z-index: 1;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FlexContainer from '../../atoms/flexContainer';
 import moment from 'moment';
 import Subtitle from '../../atoms/subtitle';
-import { COLOR, TYPOGRAPHY } from '../../../theme/constants';
+import { COLOR, FONT, TYPOGRAPHY } from '../../../theme/constants';
 import StyledLink from '../styledlink';
 import Title from '../../atoms/title';
 import Hr from '../../atoms/hr';
@@ -34,7 +34,7 @@ const Post = (props: IPost) => {
     return (
         <PostWrapper isMobile={isMobile}>
             <PostBody
-                spaceBetween={0}
+                spaceBetween={6}
             >
                 <PostHeader
                     flexDirection="row"
@@ -78,10 +78,10 @@ const PostHeader = styled(FlexContainer)`
 const PostBody = styled(FlexContainer)``;
 
 const PostCategory = styled(Title)`
-    ${TYPOGRAPHY.BLACK};
+    ${TYPOGRAPHY.BOLD};
     font-size: 14px;
+    text-transform: uppercase;
     color: ${COLOR.GREY};
-    letter-spacing: 1px;
     white-space: nowrap;
 `;
 
@@ -107,10 +107,11 @@ const PostReadMore = styled(StyledLink)`
 const PostSubtitle = styled(Subtitle)`
     font-size: 14px;
     color: ${COLOR.DARKGREY};
+    font-style: ${FONT.STYLE.ITALIC};
 `;
 
 const PostBlurb = styled(P)`
-    font-size: 13px;
+    font-size: 12px;
     color: ${COLOR.BLACK};
     margin-top: 8px;
     position: relative;

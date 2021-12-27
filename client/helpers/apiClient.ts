@@ -4,7 +4,7 @@ import cookies from 'js-cookie'
 export default async function APIClient(method, url, params?, data?, headers?, files?, fields? ) {
 
   let request: AxiosRequestConfig = {
-    withCredentials: false,
+    withCredentials: true,
     url: url,
     method: method
   };

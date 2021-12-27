@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { COLOR, TYPOGRAPHY } from '../../../../theme/constants';
 import FlexContainer from '../../../atoms/flexContainer';
@@ -7,7 +7,11 @@ import List from '../../../atoms/list';
 import Title from '../../../atoms/title';
 import StyledLink from '../../../molecules/styledlink';
 import { useSelector } from 'react-redux';
-import { selectAuthenticated, selectRole } from '../../../../redux/reducers/auth';
+import { selectAuth, selectAuthenticated, selectRole, setLoginError, setLoginModal,  } from '../../../../redux/reducers/auth';
+import { useDispatch } from 'react-redux';
+import Button from '../../../atoms/button';
+import LoginModal from '../../../organisms/login';
+import { useScrollBlock } from '../../../../helpers/hooks/useScrollBlock';
 
 interface IHeader {
     isTransparent?: boolean;
@@ -16,10 +20,23 @@ interface IHeader {
 const Header = (props: IHeader) => {
     const { isTransparent = false } = props;
 
-    console.log(useSelector(selectAuthenticated));
-    console.log(useSelector(selectRole));
+    const authenticated = useSelector(selectAuthenticated);
+    const showLoginModal = useSelector(selectAuth).showLoginModal;
 
     const router = useRouter();
+    const dispatch = useDispatch();
+    const [block, unblock] = useScrollBlock();
+
+    const handleLogin = () => {
+        dispatch(setLoginModal(true));
+        block();
+    }
+
+    const closeLogin = () => {
+        dispatch(setLoginModal(false));
+        dispatch(setLoginError(null));
+        unblock();
+    }
 
     return (
         <H
@@ -40,8 +57,15 @@ const Header = (props: IHeader) => {
                     <NavLink active={router.pathname == "/archive"} href="/">Archive</NavLink>
                     <NavLink active={router.pathname == "/faq"} href="/">FAQ</NavLink>
                     <NavLink active={router.pathname == "/archive"} href="/">Random</NavLink>
+                    {authenticated ? null :
+                    <NavButton
+                        callback={handleLogin}
+                    >
+                        Login
+                    </NavButton>}
                 </List>
             </Nav>
+            {showLoginModal && <LoginModal close={closeLogin} />}
         </H>
     )
 }
@@ -51,7 +75,7 @@ const H = styled(FlexContainer)<{ isTransparent: boolean }>`
     width: 100%;
     padding: 0 48px;
     position: ${p => p.isTransparent ? 'absolute' : 'relative'};
-    z-index: 100;
+    z-index: 200;
 
     ${p => p.isTransparent ? `
         top: 0;
@@ -79,6 +103,15 @@ const NavLink = styled(StyledLink)<{ active: boolean }>`
     ${p => p.active ? `
         border-bottom: 4px solid ${COLOR.DARKGREY};
     ` : ''}
+`;
+
+const NavButton = styled(Button)`
+    border: 1px solid ${COLOR.WHITE};
+    background: transparent;
+    padding: 4px 8px;
+    margin-top: 4px;
+    color: ${COLOR.WHITE};
+    ${TYPOGRAPHY.LIGHT};
 `;
 
 export default Header;

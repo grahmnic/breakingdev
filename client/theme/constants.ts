@@ -3,7 +3,8 @@ export const COLOR = {
     BLACK: '#111111',
     LIGHTGREY: '#E6E6E6',
     GREY: '#D3D3D3',
-    DARKGREY: '#696969'
+    DARKGREY: '#696969',
+    ERROR: '#B00020'
 }
 
 

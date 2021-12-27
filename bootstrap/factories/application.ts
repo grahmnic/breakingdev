@@ -26,10 +26,12 @@ export default ({
     application.use(bodyParser.json());
     application.use(bodyParser.urlencoded({ extended: true }));
 
-    application.use(cors());
-
-    application.use(csrf({
-        cookie: true
+    application.use(cors({
+        origin: [
+            environment.get('modules.client')
+        ],
+        credentials: true,
+        exposedHeaders: ['set-cookie']
     }));
 
     application.use(responseTime((req, res, time) => {
@@ -39,8 +41,8 @@ export default ({
     application.use(
         session({
             secret: 'breaking-dev-secret',
-            resave: true,
-            saveUninitialized: true,
+            resave: false,
+            saveUninitialized: false,
             cookie: {
                 secure: 'auto',
                 sameSite: 'lax'
@@ -48,8 +50,10 @@ export default ({
         })
     );
 
+    application.use(csrf());
+
     application.use(passport.initialize());
-    application.use(passport.session());
+    // application.use(passport.session());
 
     // Register router to application
     application.use(router);

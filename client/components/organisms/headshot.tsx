@@ -18,7 +18,7 @@ const Headshot = (props: any) => {
         alignItems="center"
     >
         <ImageContainer>
-            <Image layout="fill" objectFit="cover" src="/images/headshot.jpg" alt="headshot" />
+            <Image layout="fill" objectFit="cover" src="/images/headshot.jpg" alt="headshot" priority={true} />
         </ImageContainer>
         <Name>Nick Chen</Name>
         <Tag>@grahmnic</Tag>

@@ -1,6 +1,7 @@
 import express, { response } from 'express';
 import { PassportStatic } from 'passport';
 import jwt from 'jsonwebtoken';
+import moment from 'moment';
 import { IPostsController } from '../controllers/posts';
 import { IConfig } from 'config';
 import { IUsersController } from '../controllers/users';
@@ -30,7 +31,7 @@ export default ({
     });
 
     // AUTHENTICATION
-    router.route('/signup').post(usersController.addUser);
+    // router.route('/signup').post(usersController.addUser);
     router.route('/csrf').get((req, res) => {
         res.json({
             csrfToken: req.csrfToken()
@@ -66,10 +67,14 @@ export default ({
 
                                 res.cookie('t', jwtToken, {
                                     httpOnly: true,
-                                    maxAge: 60 * 60 * 12,
+                                    expires: moment().add(60 * 60 * 12, 'seconds').toDate(),
+                                    secure: true
                                 });
 
-                                res.status(301).redirect(`${environment.get('modules.client')}`)
+                                res.json({
+                                    user: user,
+                                    authenticated: true
+                                });
                             }
                         );
                     } catch (error) {

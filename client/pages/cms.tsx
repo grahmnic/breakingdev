@@ -1,6 +1,6 @@
 import React from 'react';
 import config from '../config';
-import Layout from './layout';
+import Layout from '../components/layout';
 
 const CMS = (props: any) => {
   const isBrowser = () => typeof window !== "undefined";

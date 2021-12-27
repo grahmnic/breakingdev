@@ -19,6 +19,7 @@ const Button = (props: IButton) => {
 const B = styled.button`
     outline: none;
     border: none;
+    cursor: pointer;
 `;
 
 export default Button;
