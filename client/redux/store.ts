@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
-import authReducer from './reducers/auth'
+import authReducer from './reducers/auth';
 import { customMiddleware } from './middleware/customMiddleware';
 
 const initStore = () => {

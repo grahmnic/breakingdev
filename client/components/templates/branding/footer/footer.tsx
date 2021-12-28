@@ -7,12 +7,12 @@ import List from '../../../atoms/list';
 import Subtitle from '../../../atoms/subtitle';
 import StyledLink from '../../../molecules/styledlink';
 
-interface IHeader {
+interface IFooter {
 
 }
 
-const Footer = (props: IHeader) => {
-    const {  } = props;
+const Footer = (props: IFooter) => {
+    const { } = props;
 
     return (
         <FooterWrapper

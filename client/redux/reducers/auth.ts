@@ -11,7 +11,8 @@ export const initialState: any = {
   isAdmin: false,
   showLoginModal: false,
   loginError: null,
-  cookies: {}
+  cookies: {},
+  loaded: false,
 };
 
 export const get_cookies = createAsyncThunk('get/cookies', async () => {
@@ -88,6 +89,9 @@ export const auth = createSlice({
           ...action.payload.auth,
       };
     }),
+    builder.addCase(get_cookies.pending, (state, action) => {
+        state.loaded = false;
+    }),
     builder.addCase(auth_load.fulfilled, (state, action) => {
       if (typeof window === 'undefined') {
         state = initialState;
@@ -102,10 +106,11 @@ export const auth = createSlice({
           state.isAdmin = false;
           state.user = '';
       }
+      state.loaded = true;
     }),
     builder.addCase(get_cookies.fulfilled, (state, action) => {
         state.cookies = action.payload;
-    })
+    }),
     builder.addCase(auth_load.rejected, (state, action) => {
         state.error = action.error;
     }),

@@ -27,6 +27,10 @@ const Header = (props: IHeader) => {
     const dispatch = useDispatch();
     const [block, unblock] = useScrollBlock();
 
+    if(!showLoginModal) {
+        unblock();
+    }
+
     const handleLogin = () => {
         dispatch(setLoginModal(true));
         block();
@@ -74,16 +78,11 @@ const H = styled(FlexContainer)<{ isTransparent: boolean }>`
     height: 75px;
     width: 100%;
     padding: 0 48px;
-    position: ${p => p.isTransparent ? 'absolute' : 'relative'};
+    position: absolute;
     z-index: 200;
-
-    ${p => p.isTransparent ? `
-        top: 0;
-        left: 0;
-        background: transparent;
-    ` : `
-        background: ${COLOR.BLACK};
-    `}
+    top: 0;
+    left: 0;
+    background: transparent;
 `;
 
 const HeaderTitle = styled(Title)`
@@ -109,7 +108,7 @@ const NavButton = styled(Button)`
     border: 1px solid ${COLOR.WHITE};
     background: transparent;
     padding: 4px 8px;
-    margin-top: 4px;
+    margin-top: 6px;
     color: ${COLOR.WHITE};
     ${TYPOGRAPHY.LIGHT};
 `;

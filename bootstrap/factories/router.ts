@@ -72,7 +72,7 @@ export default ({
                                 });
 
                                 res.json({
-                                    user: user,
+                                    user,
                                     authenticated: true
                                 });
                             }

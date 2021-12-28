@@ -20,7 +20,6 @@ const Home = (props: any) => {
       description={description}
       width={'full'}
       url={`${config.publicPath}`}
-      isTransparent
     >
       <Mural />
       <Body />

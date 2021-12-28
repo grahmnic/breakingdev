@@ -6,11 +6,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Merriweather', serif;
+  font-family: 'Lato', sans-serif;
 }
 
 input, button {
-  font-family: 'Merriweather', serif;
+  font-family: 'Lato', sans-serif;
 }
 
 a {
